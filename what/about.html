@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - What-If Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-question-circle"></i>
+                <span>What-If?</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="browse.html">Browse Questions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to <strong>What-If?</strong>, a platform dedicated to exploring the boundless possibilities of hypothetical thinking. Our mission is to foster creativity, critical thinking, and intellectual curiosity by providing a space where students can pose and discuss "what-if" questions across various disciplines.</p>
+                    <p>Founded with the belief that imagination is the key to innovation, What-If? encourages students to think beyond the ordinary and consider alternative realities. Whether you're pondering scientific breakthroughs, historical turning points, or philosophical dilemmas, our platform provides the tools and community to explore these ideas.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number" id="questions-count">0</div>
+                            <div class="stat-label">Questions Asked</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" id="students-count">0</div>
+                            <div class="stat-label">Active Users</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" id="categories-count">8</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Students collaborating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>What-If Questions</h3>
+                <p>Explore hypothetical scenarios and spark your imagination with thought-provoking questions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="login.html">Student Login</a></li>
+                    <li><a href="signup.html">Student Signup</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Have feedback? Reach out to us at rayairobapora@gmail.com</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2023 What-If Platform by Ray Airo R. Bapora. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+        });
+
+        function updateStats() {
+            const questions = JSON.parse(localStorage.getItem('whatif-questions') || '[]');
+            const students = JSON.parse(localStorage.getItem('whatif-students') || '[]');
+            
+            const publishedQuestions = questions.filter(q => q.status === 'published').length;
+            const activeStudents = students.length;
+            
+            animateCounter('questions-count', publishedQuestions);
+            animateCounter('students-count', activeStudents);
+        }
+
+        function animateCounter(elementId, target) {
+            const element = document.getElementById(elementId);
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 20);
+        }
+    </script>
+</body>
+</html>

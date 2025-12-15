@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - What-If Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-question-circle"></i>
+                <span>Student Dashboard</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="nav-home">Home</a></li>
+                    <li><a href="#" id="nav-ask">Ask Question</a></li>
+                    <li><a href="#" id="nav-browse">Browse Questions</a></li>
+                    <li><a href="#" id="nav-my-questions">My Questions</a></li>
+                </ul>
+            </nav>
+            <div class="header-search">
+                <input type="text" id="header-search" placeholder="Search questions...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="auth-buttons">
+                <span id="user-welcome" class="welcome-message"></span>
+                <button id="logout-btn" class="btn btn-danger">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Home Page -->
+        <div id="home-page" class="page-content">
+            <h1 class="section-title">Welcome to Your Dashboard</h1>
+            <div class="card">
+                <div id="user-stats" class="user-stats">
+                    <!-- User stats will be loaded here -->
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 2rem;">Recent Questions</h2>
+            <div id="recent-questions" class="questions-container">
+                <!-- Recent questions will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Ask Question Page -->
+        <div id="ask-page" class="page-content hidden">
+            <h1 class="section-title">Ask a What-If Question</h1>
+            <div class="card question-form">
+                <div class="form-group">
+                    <label for="question-text">Your What-If Question</label>
+                    <textarea id="question-text" rows="4" placeholder="What if humans could photosynthesize like plants?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-tags">
+                        <div class="category-tag" data-category="science">Science</div>
+                        <div class="category-tag" data-category="technology">Technology</div>
+                        <div class="category-tag" data-category="history">History</div>
+                        <div class="category-tag" data-category="philosophy">Philosophy</div>
+                        <div class="category-tag" data-category="entertainment">Entertainment</div>
+                        <div class="category-tag" data-category="society">Society</div>
+                        <div class="category-tag" data-category="environment">Environment</div>
+                        <div class="category-tag" data-category="health">Health</div>
+                    </div>
+                    <input type="hidden" id="selected-category">
+                </div>
+                <div class="form-group">
+                    <label for="custom-category">Or enter a custom category</label>
+                    <input type="text" id="custom-category" placeholder="Enter your own category">
+                </div>
+                <button id="submit-question" class="btn btn-primary">Submit Question</button>
+            </div>
+        </div>
+
+        <!-- Browse Questions Page -->
+        <div id="browse-page" class="page-content hidden">
+            <h1 class="section-title">Browse What-If Questions</h1>
+            <div class="form-group">
+                <select id="filter-category">
+                    <option value="all">All Categories</option>
+                    <option value="science">Science</option>
+                    <option value="technology">Technology</option>
+                    <option value="history">History</option>
+                    <option value="philosophy">Philosophy</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="society">Society</option>
+                    <option value="environment">Environment</option>
+                    <option value="health">Health</option>
+                </select>
+            </div>
+            <div id="all-questions" class="questions-container">
+                <!-- All questions will be loaded here -->
+            </div>
+        </div>
+
+        <!-- My Questions Page -->
+        <div id="my-questions-page" class="page-content hidden">
+            <h1 class="section-title">My Questions</h1>
+            <div id="my-questions-container" class="questions-container">
+                <!-- User's questions will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Student Dashboard</h3>
+                <p>Explore hypothetical scenarios and spark your imagination.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" id="footer-home">Home</a></li>
+                    <li><a href="#" id="footer-ask">Ask Question</a></li>
+                    <li><a href="#" id="footer-browse">Browse Questions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Need Help?</h3>
+                <p>Contact admin at rayairobapora@gmail.com</p>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2023 What-If Platform. Student Dashboard.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
